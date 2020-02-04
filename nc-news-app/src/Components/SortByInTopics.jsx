@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from '@reach/router';
 
 const SortByInTopics = (props) => {
-	let { topic, sort_by } = props;
+	let { topic } = props;
 	return (
 		<nav>
 			<p>Sort by:</p>

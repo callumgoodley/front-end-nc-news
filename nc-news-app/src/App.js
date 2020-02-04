@@ -17,7 +17,7 @@ function App() {
 			<br />
 			<Router>
 				<Articles path="/" />
-				<ArticlesByTopic path="/:topic" />
+				<ArticlesByTopic path="topic/:topic" />
 				<ArticlesSortedBy path="/sort/:sort_by" />
 				<ArticlesByTopicSorted path="/:topic/sort/:sort_by" />
 				<Article path="/:article_id" />
