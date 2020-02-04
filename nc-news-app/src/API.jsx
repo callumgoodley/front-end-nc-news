@@ -28,3 +28,20 @@ export const getComments = (article_id) => {
 			return comments.data.comments;
 		});
 };
+
+export const postComment = (article_id, inputValue, userName) => {
+	return axios
+		.post(`http://callum-goodley-nc-news-app.herokuapp.com/api/articles/${article_id}/comments`, {
+			body: inputValue,
+			username: userName
+		})
+		.then((comments) => {
+			return comments.data.comment;
+		});
+};
+
+export const deleteComment = (comment_id) => {
+	return axios.delete(`http://callum-goodley-nc-news-app.herokuapp.com/api/comments/${comment_id}`).then(() => {
+		return 'comment deleted';
+	});
+};
