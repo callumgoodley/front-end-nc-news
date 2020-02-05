@@ -45,3 +45,23 @@ export const deleteComment = (comment_id) => {
 		return 'comment deleted';
 	});
 };
+
+export const incrementVotes = (comment_id, article_id, increment_by) => {
+	if (comment_id) {
+		return axios
+			.patch(`http://callum-goodley-nc-news-app.herokuapp.com/api/comments/${comment_id}`, {
+				inc_votes: increment_by
+			})
+			.then((comment) => {
+				return comment.data.comment;
+			});
+	} else {
+		return axios
+			.patch(`http://callum-goodley-nc-news-app.herokuapp.com/api/articles/${article_id}`, {
+				inc_votes: increment_by
+			})
+			.then((comment) => {
+				return comment.data.comment;
+			});
+	}
+};

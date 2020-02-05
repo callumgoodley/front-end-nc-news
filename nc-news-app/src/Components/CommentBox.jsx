@@ -8,8 +8,13 @@ class CommentBox extends React.Component {
 		return (
 			<form onSubmit={this.handleSubmit}>
 				<label>
-					Add a comment:
-					<input type="text" name="inputValue" value={this.state.inputValue} onChange={this.handleChange} />
+					<input
+						type="text"
+						name="inputValue"
+						value={this.state.inputValue}
+						placeholder="comment here"
+						onChange={this.handleChange}
+					/>
 					<button>Submit comment.</button>
 				</label>
 			</form>

@@ -8,6 +8,7 @@ import Nav from './Components/Nav';
 import ArticlesSortedBy from './Components/ArticlesSortedBy';
 import ArticlesByTopicSorted from './Components/ArticlesByTopicSorted';
 import Article from './Components/Article';
+// import ErrorPage from './Components/ErrorPage';
 
 function App() {
 	return (
@@ -15,13 +16,14 @@ function App() {
 			<Header />
 			<Nav />
 			<br />
-			<Router>
+			<Router primary={false}>
 				<Articles path="/" />
 				<ArticlesByTopic path="topic/:topic" />
 				<ArticlesSortedBy path="/sort/:sort_by" />
 				<ArticlesByTopicSorted path="/:topic/sort/:sort_by" />
 				<Article path="/:article_id" />
 			</Router>
+			{/* <ErrorPage default /> */}
 		</div>
 	);
 }
