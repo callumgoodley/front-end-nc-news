@@ -5,7 +5,7 @@ import DeleteComment from './DeleteComment';
 const CommentCard = (props) => {
 	return props.comments_list.map((comment) => {
 		return (
-			<ul key={`${comment.comment_id} card`}>
+			<ul id="comment_card" key={`${comment.comment_id} card`}>
 				<li key={comment.comment_id}>
 					User: {comment.author}
 					<br />
@@ -16,17 +16,15 @@ const CommentCard = (props) => {
 					Votes: {comment.votes} Created at: {comment.created_at}
 					<br />
 					<br />
-					{props.userName === comment.author ? (
-						<DeleteComment
-							key={`delete comment: ${comment.comment_id}`}
-							removeComment={props.removeComment}
-							comment_id={comment.comment_id}
-						/>
-					) : null}
-					<br />
-					<br />
 				</li>
 
+				{props.userName === comment.author ? (
+					<DeleteComment
+						key={`delete comment: ${comment.comment_id}`}
+						removeComment={props.removeComment}
+						comment_id={comment.comment_id}
+					/>
+				) : null}
 				<CommentsVoteButton votes={comment.votes} comment_id={comment.comment_id} voteDown={props.voteDown} />
 			</ul>
 		);

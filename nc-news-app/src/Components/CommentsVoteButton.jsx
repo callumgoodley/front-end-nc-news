@@ -9,7 +9,7 @@ class CommentsVoteButton extends React.Component {
 
 	render() {
 		return (
-			<main>
+			<main id="vote_button">
 				<button
 					key="vote up button"
 					name={1}

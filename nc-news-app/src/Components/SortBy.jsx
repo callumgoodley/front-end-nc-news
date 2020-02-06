@@ -3,7 +3,7 @@ import { Link } from '@reach/router';
 
 const SortBy = () => {
 	return (
-		<nav>
+		<nav id="sort_by">
 			<p>Sort by:</p>
 			<Link to={`/sort/created_at`}>Latest.</Link>
 			<Link to={`/sort/votes`}>Top voted.</Link>

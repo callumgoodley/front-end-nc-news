@@ -12,7 +12,7 @@ import Article from './Components/Article';
 
 function App() {
 	return (
-		<div className="App">
+		<main className="App">
 			<Header />
 			<Nav />
 			<br />
@@ -24,7 +24,7 @@ function App() {
 				<Article path="/:article_id" />
 			</Router>
 			{/* <ErrorPage default /> */}
-		</div>
+		</main>
 	);
 }
 

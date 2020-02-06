@@ -4,7 +4,7 @@ import SortByInTopics from './SortByInTopics';
 
 const ArticlesByTopic = (props) => {
 	return (
-		<main>
+		<main id="article_page">
 			<h2>Todays top {props.topic} articles:</h2>
 			<SortByInTopics topic={props.topic} sort_by={props.sort_by} />
 			<ul>

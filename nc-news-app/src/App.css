@@ -21,7 +21,7 @@
 	align-items: center;
 	justify-content: center;
 	font-size: calc(10px + 2vmin);
-	color: white;
+	color: wheat;
 }
 
 .App-link {
@@ -36,20 +36,99 @@
 		transform: rotate(360deg);
 	}
 }
-h1 {
+
+main {
+	background-color: white;
+}
+
+#title {
 	color: tomato;
 	font-family: monospace;
 	font-size: 500%;
+	font-weight: 300;
+}
+
+#second_heading {
+	color: black;
+	text-align: left;
+	text-decoration: underline;
+	margin-left: 2%;
+	font-size: 200%;
+	font-weight: 500;
 }
 
 li {
 	list-style: none;
-	border-color: tomato;
-	border-width: 10%;
 }
 
-p {
+/* p {
 	color: black;
+	text-align: left;
+	text-shadow: tomato;
+	margin-left: 5%;
+	margin-right: 15%;
+} */
+
+#article_page {
+	color: black;
+	text-align: left;
 	margin-left: 15%;
 	margin-right: 15%;
+	border-style: solid;
+	border-radius: 15px;
+	border-color: tomato;
+	border-width: 2px;
+	padding: 2%;
+	background-color: white;
+}
+#saved {
+	background-color: rgb(241, 240, 240);
+}
+#comment_section {
+	color: black;
+	text-align: left;
+	padding: 2%;
+	background-color: white;
+}
+
+#comment_card {
+	color: black;
+	text-align: left;
+	margin-left: 5%;
+	margin-right: 5%;
+	border-style: solid;
+	border-radius: 15px;
+	border-color: tomato;
+	border-width: 2px;
+	padding: 2%;
+	background-color: white;
+}
+
+#buttons-container {
+	text-align: right;
+	background-color: rgb(241, 240, 240);
+	display: flex;
+	flex-direction: column;
+}
+
+#vote_button {
+	text-align: right;
+	background-color: white;
+	/* display: flex;
+	flex-direction: column; */
+}
+
+#comment_box {
+	align-items: center;
+	text-align: right;
+	padding: 2%;
+}
+
+#sort_by {
+	text-align: center;
+}
+
+textarea,
+input::-webkit-textarea-placeholder {
+	font-size: 100%;
 }

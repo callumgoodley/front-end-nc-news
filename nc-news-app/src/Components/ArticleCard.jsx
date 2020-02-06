@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from '@reach/router';
 import ArticleVoteButton from './ArticleVoteButton';
+import '../App.css';
 
 const ArticleCard = (props) => {
 	let articleArray = [];
@@ -11,18 +12,11 @@ const ArticleCard = (props) => {
 			return (
 				<label key={article.article_id}>
 					<li>
-						<h2>{article.title}</h2> Author: {article.author}
-						<br />
-						<br />
-						Topic: {article.topic}
+						<h2>{article.title}</h2> Author: {article.author} Created at: {article.created_at}
 						<br />
 						<p>{article.body}</p>
-						<br />
-						Created at: {article.created_at}
+						<ArticleVoteButton votes={props.votes} article_id={props.article_id} />
 					</li>
-					<br />
-					<ArticleVoteButton votes={props.votes} article_id={props.article_id} />
-					<br />
 				</label>
 			);
 		});
@@ -32,7 +26,7 @@ const ArticleCard = (props) => {
 		return articleArray.map((article) => {
 			return (
 				<label key={article.article_id}>
-					<li>
+					<li id="comment_card">
 						<Link to={`/${article.article_id}`}>{article.title}</Link> comments: {article.comment_count},
 						created at:{article.created_at}, votes:
 						{article.votes}

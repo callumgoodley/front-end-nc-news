@@ -6,15 +6,25 @@ class CommentBox extends React.Component {
 	};
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
+			<form id="comment_box" onSubmit={this.handleSubmit}>
 				<label>
-					<input
+					<textarea
+						rows="6"
+						cols="95"
 						type="text"
 						name="inputValue"
 						value={this.state.inputValue}
 						placeholder="comment here"
 						onChange={this.handleChange}
 					/>
+					{/* <input
+						type="text"
+						name="inputValue"
+						value={this.state.inputValue}
+						placeholder="comment here"
+						onChange={this.handleChange}
+					/> */}
+					<br />
 					<button>Submit comment.</button>
 				</label>
 			</form>
