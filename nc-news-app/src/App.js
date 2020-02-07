@@ -10,7 +10,6 @@ import ArticlesByTopicSorted from './Components/ArticlesByTopicSorted';
 import Article from './Components/Article';
 import Login from './Components/Login';
 import LoginPage from './Components/LoginPage';
-// import ErrorPage from './Components/ErrorPage';
 
 class App extends React.Component {
 	state = {
@@ -31,7 +30,6 @@ class App extends React.Component {
 					<ArticlesByTopicSorted path="/:topic/sort/:sort_by" user={this.state.user} />
 					<Article path="/:article_id" user={this.state.user} />
 				</Router>
-				{/* <ErrorPage default /> */}
 			</main>
 		);
 	}

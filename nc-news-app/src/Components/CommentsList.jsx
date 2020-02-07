@@ -13,7 +13,7 @@ class CommentsList extends React.Component {
 
 	render() {
 		if (this.state.isLoading === true) return <p>Loading....</p>;
-		if (this.state.err) return <p>{this.state.err.status} No comments.</p>;
+		if (this.state.err) return <p id="error">{this.state.err.status}: No comment found.</p>;
 		return (
 			<main id="comment_section" key="main">
 				<CommentBox

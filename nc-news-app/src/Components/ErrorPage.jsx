@@ -1,7 +1,7 @@
-// import React from 'react'
+import React from 'react';
 
-//  const ErrorPage = () => {
+const ErrorPage = () => {
+	return <section>404: Article not found.</section>;
+};
 
-//  }
-
-//  export default ErrorPage
+export default ErrorPage;

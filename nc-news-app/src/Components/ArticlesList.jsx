@@ -11,7 +11,7 @@ class ArticlesList extends React.Component {
 
 	render() {
 		if (this.state.isLoading === true) return <p>Loading....</p>;
-		if (this.state.err) return <p>{this.state.err.status} Article Not Found.</p>;
+		if (this.state.err) return <p id="error">{this.state.err.status}: Article not found.</p>;
 		return (
 			<ArticleCard
 				votes={this.state.articles_list.votes}

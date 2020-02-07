@@ -47,6 +47,9 @@ main {
 	text-align: right;
 	padding: 1%;
 }
+#error {
+	text-align: center;
+}
 
 #login {
 	text-align: center;
