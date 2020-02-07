@@ -13,6 +13,7 @@ class ArticleVoteButton extends React.Component {
 				<button
 					key="vote up button"
 					name={1}
+					id="vote_button"
 					value={this.props.article_id}
 					onClick={this.handleClick}
 					disabled={this.state.voteChange === 1}
@@ -23,6 +24,7 @@ class ArticleVoteButton extends React.Component {
 				<button
 					key="vote down button"
 					name={-1}
+					id="vote_button"
 					value={this.props.article_id}
 					onClick={this.handleClick}
 					disabled={this.state.voteChange === -1}

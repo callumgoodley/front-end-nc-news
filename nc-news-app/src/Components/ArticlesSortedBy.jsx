@@ -10,10 +10,10 @@ const ArticlesSortedBy = (props) => {
 
 	return (
 		<main id="article_page">
-			<h2>Todays top articles {sorted_by}:</h2>
+			<h2 id="all_heading">Todays top articles listed by {sorted_by}:</h2>
 			<SortBy topic={props.topic} sort_by={props.sort_by} />
 			<ul>
-				<ArticlesList sort_by={props.sort_by} />
+				<ArticlesList sort_by={props.sort_by} user={props.user} />
 			</ul>
 			<br />
 		</main>

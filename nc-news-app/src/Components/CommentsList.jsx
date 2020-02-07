@@ -17,6 +17,7 @@ class CommentsList extends React.Component {
 		return (
 			<main id="comment_section" key="main">
 				<CommentBox
+					user={this.props.user}
 					key="comment box"
 					article_id={this.props.article_id}
 					userName={this.state.userName}
@@ -24,6 +25,7 @@ class CommentsList extends React.Component {
 				/>
 				<CommentCard
 					key="comment card"
+					user={this.props.user}
 					comments_list={this.state.comments_list}
 					addComment={this.addComment}
 					removeComment={this.removeComment}
@@ -58,12 +60,16 @@ class CommentsList extends React.Component {
 	};
 
 	addComment = ({ inputValue }) => {
-		postComment(this.props.article_id, inputValue, this.state.userName).then((comment) => {
-			this.setState((currentState) => {
-				const newCommentsList = [ ...currentState.comments_list, comment ];
-				return { comments_list: newCommentsList };
+		postComment(this.props.article_id, inputValue, this.props.user)
+			.then((comment) => {
+				this.setState((currentState) => {
+					const newCommentsList = [ ...currentState.comments_list, comment ];
+					return { comments_list: newCommentsList };
+				});
+			})
+			.catch((err) => {
+				this.setState({ err: err.response, isLoading: false });
 			});
-		});
 	};
 
 	removeComment = (event) => {

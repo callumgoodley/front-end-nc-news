@@ -3,11 +3,19 @@ import { Link } from '@reach/router';
 
 const Nav = () => {
 	return (
-		<nav>
-			<Link to="/">All.</Link>
-			<Link to="topic/football">Football.</Link>
-			<Link to="topic/cooking">Cooking.</Link>
-			<Link to="topic/coding">Coding.</Link>
+		<nav id="topic_link">
+			<Link id="topic_link" to="/">
+				All
+			</Link>
+			<Link id="topic_link" to="topic/football">
+				Football
+			</Link>
+			<Link id="topic_link" to="topic/cooking">
+				Cooking
+			</Link>
+			<Link id="topic_link" to="topic/coding">
+				Coding
+			</Link>
 		</nav>
 	);
 };

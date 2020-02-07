@@ -8,24 +8,37 @@ import Nav from './Components/Nav';
 import ArticlesSortedBy from './Components/ArticlesSortedBy';
 import ArticlesByTopicSorted from './Components/ArticlesByTopicSorted';
 import Article from './Components/Article';
+import Login from './Components/Login';
+import LoginPage from './Components/LoginPage';
 // import ErrorPage from './Components/ErrorPage';
 
-function App() {
-	return (
-		<main className="App">
-			<Header />
-			<Nav />
-			<br />
-			<Router primary={false}>
-				<Articles path="/" />
-				<ArticlesByTopic path="topic/:topic" />
-				<ArticlesSortedBy path="/sort/:sort_by" />
-				<ArticlesByTopicSorted path="/:topic/sort/:sort_by" />
-				<Article path="/:article_id" />
-			</Router>
-			{/* <ErrorPage default /> */}
-		</main>
-	);
+class App extends React.Component {
+	state = {
+		user: 'guest'
+	};
+	render() {
+		return (
+			<main className="App">
+				<Login setUser={this.setUser} user={this.state.user} />
+				<Header />
+				<Nav />
+				<br />
+				<Router primary={false}>
+					<LoginPage setUser={this.setUser} user={this.state.user} path="/login" />
+					<Articles path="/" user={this.state.user} />
+					<ArticlesByTopic path="topic/:topic" user={this.state.user} />
+					<ArticlesSortedBy path="/sort/:sort_by" user={this.state.user} />
+					<ArticlesByTopicSorted path="/:topic/sort/:sort_by" user={this.state.user} />
+					<Article path="/:article_id" user={this.state.user} />
+				</Router>
+				{/* <ErrorPage default /> */}
+			</main>
+		);
+	}
+
+	setUser = (user) => {
+		this.setState({ user });
+	};
 }
 
 export default App;

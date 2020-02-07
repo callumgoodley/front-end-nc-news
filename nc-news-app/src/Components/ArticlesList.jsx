@@ -17,6 +17,7 @@ class ArticlesList extends React.Component {
 				votes={this.state.articles_list.votes}
 				article_id={this.props.article_id}
 				articles_list={this.state.articles_list}
+				user={this.props.user}
 			/>
 		);
 	}

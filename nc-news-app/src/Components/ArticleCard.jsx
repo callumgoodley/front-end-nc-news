@@ -9,30 +9,40 @@ const ArticleCard = (props) => {
 	if (props.article_id) {
 		articleArray = [ props.articles_list ];
 		return articleArray.map((article) => {
+			const date = new Date(article.created_at);
 			return (
-				<label key={article.article_id}>
-					<li>
-						<h2>{article.title}</h2> Author: {article.author} Created at: {article.created_at}
+				<ul key={article.article_id}>
+					<li id="article_card">
+						<h2>{article.title}</h2>
+						<br />
+						<p>Author: {article.author}</p>
+						<br />
+						<p>Posted: {date.toString()}</p>
 						<br />
 						<p>{article.body}</p>
 						<ArticleVoteButton votes={props.votes} article_id={props.article_id} />
 					</li>
-				</label>
+				</ul>
 			);
 		});
 	} else {
 		articleArray = props.articles_list;
 
 		return articleArray.map((article) => {
+			const date = new Date(article.created_at);
 			return (
-				<label key={article.article_id}>
-					<li id="comment_card">
-						<Link to={`/${article.article_id}`}>{article.title}</Link> comments: {article.comment_count},
-						created at:{article.created_at}, votes:
-						{article.votes}
-					</li>
-					<br />
-				</label>
+				<Link id="article_card_home" to={`/${article.article_id}`}>
+					<label key={article.article_id}>
+						<li id="home_article_card">
+							<span id="article_heading">{article.title}</span>
+							<br />
+							<br />
+							Posted:{date.toString()} Comments: {article.comment_count} Votes:
+							{article.votes}
+						</li>
+						<br />
+					</label>
+				</Link>
 			);
 		});
 	}

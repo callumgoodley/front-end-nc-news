@@ -14,18 +14,11 @@ class CommentBox extends React.Component {
 						type="text"
 						name="inputValue"
 						value={this.state.inputValue}
-						placeholder="comment here"
+						placeholder="Add a comment..."
 						onChange={this.handleChange}
 					/>
-					{/* <input
-						type="text"
-						name="inputValue"
-						value={this.state.inputValue}
-						placeholder="comment here"
-						onChange={this.handleChange}
-					/> */}
 					<br />
-					<button>Submit comment.</button>
+					<button disabled={this.props.user === 'guest'}>Submit comment.</button>
 				</label>
 			</form>
 		);
@@ -38,6 +31,7 @@ class CommentBox extends React.Component {
 	handleSubmit = (event) => {
 		event.preventDefault();
 		this.props.addComment(this.state);
+		this.setState({ inputValue: '' });
 	};
 }
 

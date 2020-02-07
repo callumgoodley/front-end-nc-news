@@ -9,12 +9,12 @@ const ArticlesByTopicSorted = (props) => {
 	if (props.sort_by === 'votes') sorted_by = 'top voted';
 	return (
 		<main id="article_page">
-			<h2>
+			<h2 id="all_heading">
 				Todays top {props.topic} articles sorted by {sorted_by}:
 			</h2>
 			<SortByInTopics topic={props.topic} sort_by={props.sort_by} />
 			<ul>
-				<ArticlesList topic={props.topic} sort_by={props.sort_by} />
+				<ArticlesList topic={props.topic} sort_by={props.sort_by} user={props.user} />
 			</ul>
 			<br />
 		</main>
