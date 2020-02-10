@@ -23,7 +23,7 @@ export const getArticles = (topic, sort_by, article_id) => {
 
 export const getComments = (article_id) => {
 	return axios
-		.get(`http://callum-goodley-nc-news-app.herokuapp.com/api/articles/${article_id}/comments`)
+		.get(`https://callum-goodley-nc-news-app.herokuapp.com/api/articles/${article_id}/comments`)
 		.then((comments) => {
 			return comments.data.comments;
 		});
@@ -31,7 +31,7 @@ export const getComments = (article_id) => {
 
 export const postComment = (article_id, inputValue, userName) => {
 	return axios
-		.post(`http://callum-goodley-nc-news-app.herokuapp.com/api/articles/${article_id}/comments`, {
+		.post(`https://callum-goodley-nc-news-app.herokuapp.com/api/articles/${article_id}/comments`, {
 			body: inputValue,
 			username: userName
 		})
@@ -41,7 +41,7 @@ export const postComment = (article_id, inputValue, userName) => {
 };
 
 export const deleteComment = (comment_id) => {
-	return axios.delete(`http://callum-goodley-nc-news-app.herokuapp.com/api/comments/${comment_id}`).then(() => {
+	return axios.delete(`https://callum-goodley-nc-news-app.herokuapp.com/api/comments/${comment_id}`).then(() => {
 		return 'comment deleted';
 	});
 };
@@ -49,7 +49,7 @@ export const deleteComment = (comment_id) => {
 export const incrementVotes = (comment_id, article_id, increment_by) => {
 	if (comment_id) {
 		return axios
-			.patch(`http://callum-goodley-nc-news-app.herokuapp.com/api/comments/${comment_id}`, {
+			.patch(`https://callum-goodley-nc-news-app.herokuapp.com/api/comments/${comment_id}`, {
 				inc_votes: increment_by
 			})
 			.then((comment) => {
@@ -57,7 +57,7 @@ export const incrementVotes = (comment_id, article_id, increment_by) => {
 			});
 	} else {
 		return axios
-			.patch(`http://callum-goodley-nc-news-app.herokuapp.com/api/articles/${article_id}`, {
+			.patch(`https://callum-goodley-nc-news-app.herokuapp.com/api/articles/${article_id}`, {
 				inc_votes: increment_by
 			})
 			.then((comment) => {
