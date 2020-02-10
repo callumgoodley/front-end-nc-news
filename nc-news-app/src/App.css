@@ -117,8 +117,6 @@ li {
 	border-width: 2px;
 	padding: 2%;
 	background-color: white;
-	display: grid;
-	/* grid-template: 20% 60% 20%/ 85% 15%; */
 }
 
 #home_article_card {
@@ -144,8 +142,6 @@ li {
 	margin-right: 1%;
 	padding: 2%;
 	background-color: white;
-	display: grid;
-	/* grid-template: 25% 10% 10% 55% / 85% 15%; */
 }
 
 card:hover {
