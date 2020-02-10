@@ -3,13 +3,13 @@ import axios from 'axios';
 export const getArticles = (topic, sort_by, article_id) => {
 	if (article_id) {
 		return axios
-			.get(`http://callum-goodley-nc-news-app.herokuapp.com/api/articles/${article_id}`)
+			.get(`https://callum-goodley-nc-news-app.herokuapp.com/api/articles/${article_id}`)
 			.then((article) => {
 				return article.data.article;
 			});
 	} else {
 		return axios
-			.get(`http://callum-goodley-nc-news-app.herokuapp.com/api/articles`, {
+			.get(`https://callum-goodley-nc-news-app.herokuapp.com/api/articles`, {
 				params: {
 					topic: topic,
 					sort_by: sort_by

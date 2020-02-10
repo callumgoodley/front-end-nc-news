@@ -29,6 +29,7 @@ const ArticleCard = (props) => {
 		articleArray = props.articles_list;
 
 		return articleArray.map((article) => {
+			console.log(article);
 			const date = new Date(article.created_at);
 			return (
 				<Link id="article_card_home" to={`/${article.article_id}`}>
