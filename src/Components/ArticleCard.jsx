@@ -32,7 +32,7 @@ const ArticleCard = (props) => {
 			console.log(article);
 			const date = new Date(article.created_at);
 			return (
-				<Link id="article_card_home" to={`/${article.article_id}`}>
+				<Link id="article_card_home" to={`/article/${article.article_id}`}>
 					<label key={article.article_id}>
 						<li id="home_article_card">
 							<span id="article_heading">{article.title}</span>

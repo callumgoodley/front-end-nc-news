@@ -23,12 +23,12 @@ class App extends React.Component {
 				<Nav />
 				<br />
 				<Router primary={false}>
-					<LoginPage setUser={this.setUser} user={this.state.user} path="/login" />
-					<Articles path="/" user={this.state.user} />
-					<ArticlesByTopic path="topic/:topic" user={this.state.user} />
-					<ArticlesSortedBy path="/sort/:sort_by" user={this.state.user} />
+					<LoginPage setUser={this.setUser} user={this.state.user} path="/" />
+					<Articles path="/articles" user={this.state.user} />
+					<ArticlesByTopic path="/articles/:topic" user={this.state.user} />
+					<ArticlesSortedBy path="/articles/sort/:sort_by" user={this.state.user} />
 					<ArticlesByTopicSorted path="/:topic/sort/:sort_by" user={this.state.user} />
-					<Article path="/:article_id" user={this.state.user} />
+					<Article path="/article/:article_id" user={this.state.user} />
 				</Router>
 			</main>
 		);
