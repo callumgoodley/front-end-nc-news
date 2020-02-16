@@ -2,11 +2,11 @@ import React from 'react';
 import ArticlesList from './ArticlesList';
 import Comments from './Comments';
 
-const Article = (props) => {
+const Article = ({ article_id, user }) => {
 	return (
 		<main id="article_page">
-			<ArticlesList article_id={props.article_id} user={props.user} />
-			<Comments article_id={props.article_id} user={props.user} />
+			<ArticlesList article_id={article_id} user={user} />
+			<Comments article_id={article_id} user={user} />
 		</main>
 	);
 };

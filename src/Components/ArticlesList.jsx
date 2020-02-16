@@ -10,20 +10,24 @@ class ArticlesList extends React.Component {
 	};
 
 	render() {
-		if (this.state.isLoading === true) return <p>Loading....</p>;
-		if (this.state.err) return <p id="error">{this.state.err.status}: Article not found.</p>;
+		const { articles_list, isLoading, err } = this.state;
+		const { user, article_id } = this.props;
+
+		if (isLoading === true) return <p>Loading....</p>;
+		if (err) return <p id="error">{err.status}: Article not found.</p>;
 		return (
 			<ArticleCard
-				votes={this.state.articles_list.votes}
-				article_id={this.props.article_id}
-				articles_list={this.state.articles_list}
-				user={this.props.user}
+				votes={articles_list.votes}
+				article_id={article_id}
+				articles_list={articles_list}
+				user={user}
 			/>
 		);
 	}
 	componentDidUpdate(prevProps) {
-		if (this.props.sort_by !== prevProps.sort_by) this.fetchArticles();
-		if (this.props.topic !== prevProps.topic) this.fetchArticles();
+		const { sort_by, topic } = this.props;
+		if (sort_by !== prevProps.sort_by) this.fetchArticles();
+		if (topic !== prevProps.topic) this.fetchArticles();
 	}
 
 	componentDidMount() {

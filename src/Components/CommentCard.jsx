@@ -1,9 +1,9 @@
 import React from 'react';
-import CommentsVoteButton from './CommentsVoteButton';
+import VoteButton from './VoteButton';
 import DeleteComment from './DeleteComment';
 
-const CommentCard = (props) => {
-	return props.comments_list.map((comment) => {
+const CommentCard = ({ comments_list, user, removeComment, voteDown }) => {
+	return comments_list.map((comment) => {
 		const date = new Date(comment.created_at);
 		return (
 			<ul id="card" key={`${comment.comment_id} card`}>
@@ -17,16 +17,12 @@ const CommentCard = (props) => {
 					Votes: {comment.votes} Posted: {date.toString()}
 					<br />
 					<br />
-					<CommentsVoteButton
-						votes={comment.votes}
-						comment_id={comment.comment_id}
-						voteDown={props.voteDown}
-					/>
+					<VoteButton votes={comment.votes} comment_id={comment.comment_id} voteDown={voteDown} />
 				</li>
-				{props.user === comment.author ? (
+				{user === comment.author ? (
 					<DeleteComment
 						key={`delete comment: ${comment.comment_id}`}
-						removeComment={props.removeComment}
+						removeComment={removeComment}
 						comment_id={comment.comment_id}
 					/>
 				) : null}

@@ -25,9 +25,9 @@ class App extends React.Component {
 				<Router primary={false}>
 					<LoginPage setUser={this.setUser} user={this.state.user} path="/" />
 					<Articles path="/articles" user={this.state.user} />
-					<ArticlesByTopic path="/articles/:topic" user={this.state.user} />
-					<ArticlesSortedBy path="/articles/sort/:sort_by" user={this.state.user} />
-					<ArticlesByTopicSorted path="/:topic/sort/:sort_by" user={this.state.user} />
+					<ArticlesByTopic path="/articles/topic/:topic" user={this.state.user} />
+					<ArticlesSortedBy path="/articles/sort_by/:sort_by" user={this.state.user} />
+					<ArticlesByTopicSorted path="/articles/:topic/sort_by/:sort_by" user={this.state.user} />
 					<Article path="/article/:article_id" user={this.state.user} />
 				</Router>
 			</main>

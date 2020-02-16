@@ -12,26 +12,28 @@ class CommentsList extends React.Component {
 	};
 
 	render() {
-		if (this.state.isLoading === true) return <p>Loading....</p>;
-		if (this.state.err) return <p id="error">{this.state.err.status}: No comment found.</p>;
+		const { isLoading, err, userName, comments_list } = this.state;
+		const { user, article_id } = this.props;
+		if (isLoading === true) return <p>Loading....</p>;
+		if (err) return <p id="error">{err.status}: No comment found.</p>;
 		return (
 			<main id="comment_section" key="main">
 				<CommentBox
-					user={this.props.user}
+					user={user}
 					key="comment box"
-					article_id={this.props.article_id}
-					userName={this.state.userName}
+					article_id={article_id}
+					userName={userName}
 					addComment={this.addComment}
 				/>
 				<CommentCard
 					key="comment card"
-					user={this.props.user}
-					comments_list={this.state.comments_list}
+					user={user}
+					comments_list={comments_list}
 					addComment={this.addComment}
 					removeComment={this.removeComment}
 					voteUp={this.voteUp}
 					voteDown={this.voteDown}
-					userName={this.state.userName}
+					userName={userName}
 				/>
 				<br />
 				<br />
@@ -40,8 +42,9 @@ class CommentsList extends React.Component {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		if (this.state.comments_list[this.state.comments_list.length - 1] === 'comment deleted') this.fetchComments();
-		if (this.state.comments_list.length !== prevState.comments_list.length) this.fetchComments();
+		const { comments_list } = this.state;
+		if (comments_list[comments_list.length - 1] === 'comment deleted') this.fetchComments();
+		if (comments_list.length !== prevState.comments_list.length) this.fetchComments();
 		if (this.props.article_id !== prevProps.article_id) this.fetchComments();
 	}
 	componentDidMount() {

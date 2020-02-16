@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from '@reach/router';
 
-const Login = (props) => {
+const Login = ({ user }) => {
 	return (
 		<section id="logged_in">
-			<p>user: {props.user}</p>
-			{props.user === 'guest' ? (
-				<Link to="/login" id="logged_in">
+			<p>user: {user}</p>
+			{user === 'guest' ? (
+				<Link to="/" id="logged_in">
 					Login
 				</Link>
 			) : (

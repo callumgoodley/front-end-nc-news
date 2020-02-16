@@ -1,35 +1,34 @@
 import React from 'react';
 import { Link } from '@reach/router';
-import ArticleVoteButton from './ArticleVoteButton';
 import '../App.css';
+import VoteButton from './VoteButton';
 
-const ArticleCard = (props) => {
+const ArticleCard = ({ articles_list, article_id, votes }) => {
 	let articleArray = [];
 
-	if (props.article_id) {
-		articleArray = [ props.articles_list ];
+	if (article_id) {
+		articleArray = [ articles_list ];
 		return articleArray.map((article) => {
 			const date = new Date(article.created_at);
 			return (
 				<ul key={article.article_id}>
-					<li id="article_card">
+					<li id="article_card" key={`${article.article_id} li`}>
 						<h2>{article.title}</h2>
 						<br />
-						<p>Author: {article.author}</p>
+						<p key={article.article_id}>Author: {article.author}</p>
 						<br />
-						<p>Posted: {date.toString()}</p>
+						<p key={article.article_id}>Posted: {date.toString()}</p>
 						<br />
-						<p>{article.body}</p>
-						<ArticleVoteButton votes={props.votes} article_id={props.article_id} />
+						<p key={article.article_id}>{article.body}</p>
+						<VoteButton votes={votes} article_id={article_id} key={article.article_id} />
 					</li>
 				</ul>
 			);
 		});
 	} else {
-		articleArray = props.articles_list;
+		articleArray = articles_list;
 
 		return articleArray.map((article) => {
-			console.log(article);
 			const date = new Date(article.created_at);
 			return (
 				<Link id="article_card_home" to={`/article/${article.article_id}`}>
