@@ -10,7 +10,7 @@ const Login = ({ user }) => {
 					Login
 				</Link>
 			) : (
-				<Link to="/login" id="logged_in">
+				<Link to="/" id="logged_in">
 					Change user
 				</Link>
 			)}
